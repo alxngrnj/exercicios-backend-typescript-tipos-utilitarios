@@ -5,7 +5,10 @@ type Usuario = {
     rg: string
     dataNacimento?: string
 }
-export type UsuarioSemRG = Omit<Usuario, "rg">
+
+type UsuarioSemRG = Omit<Usuario, "rg">;
+
+export type UsuarioSemRGComCamposObrigatorios = Required<UsuarioSemRG>
 
 const cadastrarUsuário = (info: Usuario): Usuario => {
     return info;
