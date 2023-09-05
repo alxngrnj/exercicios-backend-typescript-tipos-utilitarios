@@ -8,8 +8,13 @@ type Conn = {
 
 const conexao = (dados: Conn) => {
     const { username, password, host, port, dbname } = dados;
-    return {
+
+    type objetoImutavel = Readonly<{ driver: string, url: string }>;
+
+    const dadosDaConexao: objetoImutavel = {
         driver: 'postgres',
         url: `postgresql://${username}:${password}@${host}:${port}/${dbname}`
-    };
+    }
+
+    return dadosDaConexao;
 }
